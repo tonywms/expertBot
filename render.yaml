@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: expertBot
+    runtime: node
+    rootDir: bot-server
+    buildCommand: |
+      npm install
+      npx puppeteer browsers install chrome
+    startCommand: npm start
+    envVars:
+      - key: MISTRAL_API_KEY
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
+      - key: PORT
+        value: 3000
+      - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
+        value: false
+      - key: PUPPETEER_CACHE_DIR
+        value: /opt/render/.cache/puppeteer
