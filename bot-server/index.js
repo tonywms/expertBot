@@ -294,16 +294,31 @@ function formatWhatsAppNumber(number) {
 // ========== WHATSAPP BOT ==========
 // ========== WHATSAPP BOT ==========
 // Detecta se está rodando no Windows
-const isWindows = process.platform === 'win32';
+
+// Configuração do Puppeteer para Render
+if (process.env.NODE_ENV === 'production') {
+  const fs = require('fs');
+  const possiblePaths = [
+    '/opt/render/.cache/puppeteer/chrome/linux-133.0.6943.141/chrome-linux64/chrome',
+    '/opt/render/.cache/puppeteer/chrome/linux-123.0.6312.86/chrome-linux64/chrome',
+    '/usr/bin/google-chrome-stable',
+    '/usr/bin/chromium-browser'
+  ];
+  
+  for (const path of possiblePaths) {
+    if (fs.existsSync(path)) {
+      process.env.PUPPETEER_EXECUTABLE_PATH = path;
+      console.log(`✅ Chrome encontrado em: ${path}`);
+      break;
+    }
+  }
+}
 
 const client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
     headless: true,
-    ...(isWindows && { 
-      executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' 
-    }),
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
   }
 });
 
