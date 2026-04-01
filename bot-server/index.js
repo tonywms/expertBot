@@ -298,22 +298,15 @@ function formatWhatsAppNumber(number) {
 // ========== CONFIGURAÇÃO DO CHROME PARA RENDER ==========
 // ISSO DEVE SER A PRIMEIRA COISA NO ARQUIVO, ANTES DO CLIENT
 
-console.log('🔧 Iniciando configuração do ambiente...');
-console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('RENDER:', process.env.RENDER);
-
 if (process.env.NODE_ENV === 'production' || process.env.RENDER === 'true') {
-  console.log('🏭 Ambiente de produção detectado');
   const fs = require('fs');
   
-  // Lista de possíveis caminhos do Chrome
+  // Caminho que foi baixado
   const chromePaths = [
-    '/opt/render/.cache/puppeteer/chrome/linux-146.0.7680.153/chrome-linux64/chrome',
+    '/opt/render/.cache/puppeteer/chrome/linux-121.0.6167.85/chrome-linux64/chrome',  // ADICIONADO
     '/opt/render/.cache/puppeteer/chrome/linux-120.0.6099.109/chrome-linux64/chrome',
-    '/opt/render/.cache/puppeteer/chrome/linux-121.0.6167.85/chrome-linux64/chrome',
     '/usr/bin/google-chrome',
-    '/usr/bin/chromium-browser',
-    '/usr/bin/chromium'
+    '/usr/bin/chromium-browser'
   ];
   
   let chromePath = null;
@@ -327,18 +320,7 @@ if (process.env.NODE_ENV === 'production' || process.env.RENDER === 'true') {
   if (chromePath) {
     process.env.PUPPETEER_EXECUTABLE_PATH = chromePath;
     console.log(`✅ Chrome encontrado em: ${chromePath}`);
-  } else {
-    console.log('⚠️ Chrome não encontrado nos caminhos padrão');
-    console.log('📁 Conteúdo de /opt/render/.cache/puppeteer:');
-    try {
-      const files = fs.readdirSync('/opt/render/.cache/puppeteer');
-      console.log(files);
-    } catch (e) {
-      console.log('Pasta não existe:', e.message);
-    }
   }
-} else {
-  console.log('💻 Ambiente local detectado');
 }
 
 // ========== RESTO DO SEU CÓDIGO ==========
