@@ -292,7 +292,7 @@ function formatWhatsAppNumber(number) {
 
 // ========== WHATSAPP BOT ==========
 // ========== WHATSAPP BOT ==========
-
+// ========== WHATSAPP BOT ==========
 // Detecta se está rodando no Windows
 const isWindows = process.platform === 'win32';
 
@@ -325,26 +325,26 @@ let ultimaResposta = new Map();
 const userHistory = new Map();
 
 // Função que processa a mensagem
-    async function processarMensagem(msg, comando) {
-      if (comando === '') {
-      await client.sendMessage(msg.from, `Olá! Como posso ajudar?
+async function processarMensagem(msg, comando) {
+  if (comando === '') {
+    await client.sendMessage(msg.from, `Olá! Como posso ajudar?
 
-    📞 *Financeiro*: (85) 8641-3456
-    📞 *Comercial*: (85) 9135-0235
+📞 *Financeiro*: (85) 8641-3456
+📞 *Comercial*: (85) 9135-0235
 
-    🐞 *Chamados Técnicos*:
-    https://runrun.it/share/form/A63kMfO8ledjQ9YJ
+🐞 *Chamados Técnicos*:
+https://runrun.it/share/form/A63kMfO8ledjQ9YJ
 
-    🔑 *Ativação WMS Legado*:
-    https://wms-ativador.vercel.app/gerador
+🔑 *Ativação WMS Legado*:
+https://wms-ativador.vercel.app/gerador
 
-    🏢 *Localização*:
-    Salinas Shopping, Av. Washington Soares, 909 - Sala 65F
+🏢 *Localização*:
+Salinas Shopping, Av. Washington Soares, 909 - Sala 65F
 
-    Estou aqui para ajudar!`);
-      return;
-    }
-      
+Estou aqui para ajudar!`);
+    return;
+  }
+  
   console.log(`\n💬 [COMANDO] ${comando}`);
   
   const body = comando.toLowerCase();
@@ -380,11 +380,10 @@ const userHistory = new Map();
   }
   
   // 4. ATIVAÇÃO DO SISTEMA WMS LEGADO
-// 4. ATIVAÇÃO DO SISTEMA WMS LEGADO
-if (body.includes('ativar') || body.includes('ativação') || body.includes('legado') || 
-    body.includes('chave') || body.includes('licença') || body.includes('gerar') ||
-    body.includes('ativador')) {  // Adicionei "ativador" aqui
-  const resposta = `🔑 *Ativação do WMS Legado*
+  if (body.includes('ativar') || body.includes('ativação') || body.includes('legado') || 
+      body.includes('chave') || body.includes('licença') || body.includes('gerar') ||
+      body.includes('ativador')) {
+    const resposta = `🔑 *Ativação do WMS Legado*
 
 Siga os passos abaixo para gerar sua chave de ativação:
 
@@ -406,27 +405,16 @@ Siga os passos abaixo para gerar sua chave de ativação:
 *Pronto!* Seu sistema está ativado.
 
 ⚠️ *Importante:* O ativador é APENAS para gerar chave de ativação, não cria usuários.`;
-  ultimaResposta.set(msg.from, resposta);
-  await client.sendMessage(msg.from, resposta);
-  return;
-}
+    ultimaResposta.set(msg.from, resposta);
+    await client.sendMessage(msg.from, resposta);
+    return;
+  }
   
   // 5. PROBLEMAS NO WMS
   const wmsPalavras = ['problema', 'erro', 'bug', 'falha', 'não funciona', 'travando', 'lento', 
                        'painel', 'dashboard', 'relatório', 'inventário', 'expedição', 'movimentação',
                        'wms', 'desktop', 'web', 'mobile', 'sistema', 'não abre', 'não carrega',
-                       'cadastro', 'estoque', 'produto', 'nota fiscal', 'nf-e', 'pedido', 'suporte', 'erros',
-                       'defeito', 'instabilidade', 'congelando', 'desempenho', 'lentidão', 'crash',
-                       'conexão', 'login', 'senha', 'acesso', 'interface', 'funcionalidade', 'atualização',
-                       'versão', 'backup', 'restauração', 'integração', 'api', 'webhook', 'notificação', 'alerta', 
-                       'aviso', 'comunicação', 'sincronização', 'dados', 'informação', 'recebimento', 'expedição', 
-                       'inventário', 'relatório', 'dashboard', 'módulo', 'funcionalidade', 'criar chamado', 'abrir chamado', 
-                       'suporte técnico', 'ajuda', 'assistência', 'técnico', 'criar usuário', 'permissão', 'configuração', 
-                       'erro de sistema', 'erro de cadastro', 'erro de estoque', 'erro de nota', 'erro de pedido', 'erro de relatório', 
-                       'erro de dashboard', 'erro de módulo', 'erro de funcionalidade', 'erro de integração', 'erro de api', 
-                       'erro de webhook', 'erro de notificação', 'erro de alerta', 
-                       'erro de aviso', 'erro de comunicação', 'erro de sincronização', 'erro de dados', 'erro de informação', 
-                       'problema no recebimento', 'problema na expedição', 'problema no inventário', 'problema no relatório'];
+                       'cadastro', 'estoque', 'produto', 'nota fiscal', 'nf-e', 'pedido', 'suporte'];
   
   const isWMSProblem = wmsPalavras.some(palavra => body.includes(palavra));
   
