@@ -414,7 +414,13 @@ Siga os passos abaixo para gerar sua chave de ativação:
                        'conexão', 'login', 'senha', 'acesso', 'interface', 'funcionalidade', 'atualização',
                        'versão', 'backup', 'restauração', 'integração', 'api', 'webhook', 'notificação', 'alerta', 
                        'aviso', 'comunicação', 'sincronização', 'dados', 'informação', 'recebimento', 'expedição', 
-                       'inventário', 'relatório', 'dashboard', 'módulo', 'funcionalidade'];
+                       'inventário', 'relatório', 'dashboard', 'módulo', 'funcionalidade', 'criar chamado', 'abrir chamado', 
+                       'suporte técnico', 'ajuda', 'assistência', 'técnico', 'criar usuário', 'permissão', 'configuração', 
+                       'erro de sistema', 'erro de cadastro', 'erro de estoque', 'erro de nota', 'erro de pedido', 'erro de relatório', 
+                       'erro de dashboard', 'erro de módulo', 'erro de funcionalidade', 'erro de integração', 'erro de api', 
+                       'erro de webhook', 'erro de notificação', 'erro de alerta', 
+                       'erro de aviso', 'erro de comunicação', 'erro de sincronização', 'erro de dados', 'erro de informação', 
+                       'problema no recebimento', 'problema na expedição', 'problema no inventário', 'problema no relatório'];
   
   const isWMSProblem = wmsPalavras.some(palavra => body.includes(palavra));
   
