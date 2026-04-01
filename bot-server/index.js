@@ -295,18 +295,25 @@ function formatWhatsAppNumber(number) {
 // ========== WHATSAPP BOT ==========
 // Detecta se está rodando no Windows
 
-// Configuração do Puppeteer para Render
-// Força o caminho do Chrome no Render
-if (process.env.NODE_ENV === 'production' || process.env.RENDER) {
+// ========== CONFIGURAÇÃO DO CHROME PARA RENDER ==========
+// ISSO DEVE SER A PRIMEIRA COISA NO ARQUIVO, ANTES DO CLIENT
+
+console.log('🔧 Iniciando configuração do ambiente...');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('RENDER:', process.env.RENDER);
+
+if (process.env.NODE_ENV === 'production' || process.env.RENDER === 'true') {
+  console.log('🏭 Ambiente de produção detectado');
   const fs = require('fs');
-  const path = require('path');
   
-  // Procura o Chrome em possíveis locais
+  // Lista de possíveis caminhos do Chrome
   const chromePaths = [
+    '/opt/render/.cache/puppeteer/chrome/linux-146.0.7680.153/chrome-linux64/chrome',
     '/opt/render/.cache/puppeteer/chrome/linux-120.0.6099.109/chrome-linux64/chrome',
     '/opt/render/.cache/puppeteer/chrome/linux-121.0.6167.85/chrome-linux64/chrome',
     '/usr/bin/google-chrome',
-    '/usr/bin/chromium-browser'
+    '/usr/bin/chromium-browser',
+    '/usr/bin/chromium'
   ];
   
   let chromePath = null;
@@ -321,16 +328,23 @@ if (process.env.NODE_ENV === 'production' || process.env.RENDER) {
     process.env.PUPPETEER_EXECUTABLE_PATH = chromePath;
     console.log(`✅ Chrome encontrado em: ${chromePath}`);
   } else {
-    console.log('⚠️ Chrome não encontrado, tentando download...');
-    const { execSync } = require('child_process');
+    console.log('⚠️ Chrome não encontrado nos caminhos padrão');
+    console.log('📁 Conteúdo de /opt/render/.cache/puppeteer:');
     try {
-      execSync('npx puppeteer browsers install chrome', { stdio: 'inherit' });
+      const files = fs.readdirSync('/opt/render/.cache/puppeteer');
+      console.log(files);
     } catch (e) {
-      console.log('Erro ao instalar Chrome:', e.message);
+      console.log('Pasta não existe:', e.message);
     }
   }
+} else {
+  console.log('💻 Ambiente local detectado');
 }
 
+// ========== RESTO DO SEU CÓDIGO ==========
+// ... (imports, configurações, etc)
+
+// Depois de todas as configurações, crie o client
 const client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
