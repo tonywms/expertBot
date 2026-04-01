@@ -4,8 +4,8 @@ services:
     runtime: node
     rootDir: bot-server
     buildCommand: |
-      npm install
-      npx puppeteer browsers install chrome
+        npm install --no-audit --no-fund
+        npx puppeteer browsers install chrome --force
     startCommand: npm start
     envVars:
       - key: MISTRAL_API_KEY
