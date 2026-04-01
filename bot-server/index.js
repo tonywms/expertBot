@@ -296,20 +296,37 @@ function formatWhatsAppNumber(number) {
 // Detecta se está rodando no Windows
 
 // Configuração do Puppeteer para Render
-if (process.env.NODE_ENV === 'production') {
+// Força o caminho do Chrome no Render
+if (process.env.NODE_ENV === 'production' || process.env.RENDER) {
   const fs = require('fs');
-  const possiblePaths = [
-    '/opt/render/.cache/puppeteer/chrome/linux-133.0.6943.141/chrome-linux64/chrome',
-    '/opt/render/.cache/puppeteer/chrome/linux-123.0.6312.86/chrome-linux64/chrome',
-    '/usr/bin/google-chrome-stable',
+  const path = require('path');
+  
+  // Procura o Chrome em possíveis locais
+  const chromePaths = [
+    '/opt/render/.cache/puppeteer/chrome/linux-120.0.6099.109/chrome-linux64/chrome',
+    '/opt/render/.cache/puppeteer/chrome/linux-121.0.6167.85/chrome-linux64/chrome',
+    '/usr/bin/google-chrome',
     '/usr/bin/chromium-browser'
   ];
   
-  for (const path of possiblePaths) {
-    if (fs.existsSync(path)) {
-      process.env.PUPPETEER_EXECUTABLE_PATH = path;
-      console.log(`✅ Chrome encontrado em: ${path}`);
+  let chromePath = null;
+  for (const p of chromePaths) {
+    if (fs.existsSync(p)) {
+      chromePath = p;
       break;
+    }
+  }
+  
+  if (chromePath) {
+    process.env.PUPPETEER_EXECUTABLE_PATH = chromePath;
+    console.log(`✅ Chrome encontrado em: ${chromePath}`);
+  } else {
+    console.log('⚠️ Chrome não encontrado, tentando download...');
+    const { execSync } = require('child_process');
+    try {
+      execSync('npx puppeteer browsers install chrome', { stdio: 'inherit' });
+    } catch (e) {
+      console.log('Erro ao instalar Chrome:', e.message);
     }
   }
 }
