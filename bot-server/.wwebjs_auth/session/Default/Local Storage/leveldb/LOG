@@ -1,18 +1,6 @@
-2026/03/31-17:08:15.570 3518 Reusing MANIFEST C:\ERPPrime\ExpertBot\bot-server\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
-2026/03/31-17:08:15.582 3518 Recovering log #39
-2026/03/31-17:08:15.584 3518 Reusing old log C:\ERPPrime\ExpertBot\bot-server\.wwebjs_auth\session\Default\Local Storage\leveldb/000039.log 
-2026/03/31-17:18:22.633 25e0 Level-0 table #43: started
-2026/03/31-17:18:22.638 25e0 Level-0 table #43: 13613 bytes OK
-2026/03/31-17:18:22.640 25e0 Delete type=0 #39
-2026/03/31-18:26:32.652 25e0 Level-0 table #45: started
-2026/03/31-18:26:32.658 25e0 Level-0 table #45: 13894 bytes OK
-2026/03/31-18:26:32.661 25e0 Delete type=0 #42
-2026/03/31-18:26:32.665 25e0 Compacting 4@0 + 1@1 files
-2026/03/31-18:26:32.672 25e0 Generated table #46@0: 330 keys, 21389 bytes
-2026/03/31-18:26:32.673 25e0 Compacted 4@0 + 1@1 files => 21389 bytes
-2026/03/31-18:26:32.673 25e0 compacted to: files[ 0 1 1 0 0 0 0 ]
-2026/03/31-18:26:32.674 25e0 Delete type=2 #34
-2026/03/31-18:26:32.674 25e0 Delete type=2 #37
-2026/03/31-18:26:32.674 25e0 Delete type=2 #40
-2026/03/31-18:26:32.675 25e0 Delete type=2 #43
-2026/03/31-18:26:32.675 25e0 Delete type=2 #45
+2026/04/01-10:06:38.131 240c Reusing MANIFEST C:\ERPPrime\ExpertBot\bot-server\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
+2026/04/01-10:06:38.140 240c Recovering log #44
+2026/04/01-10:06:38.143 240c Reusing old log C:\ERPPrime\ExpertBot\bot-server\.wwebjs_auth\session\Default\Local Storage\leveldb/000044.log 
+2026/04/01-10:08:38.550 35b4 Level-0 table #49: started
+2026/04/01-10:08:38.554 35b4 Level-0 table #49: 14589 bytes OK
+2026/04/01-10:08:38.555 35b4 Delete type=0 #44
