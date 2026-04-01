@@ -292,11 +292,17 @@ function formatWhatsAppNumber(number) {
 
 // ========== WHATSAPP BOT ==========
 // ========== WHATSAPP BOT ==========
+
+// Detecta se está rodando no Windows
+const isWindows = process.platform === 'win32';
+
 const client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
     headless: true,
-    executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    ...(isWindows && { 
+      executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' 
+    }),
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   }
 });
