@@ -11,10 +11,12 @@ services:
       - key: MISTRAL_API_KEY
         sync: false
       - key: WEBHOOK_URL
-        sync: false
+        value: https://expertbot-h9mm.onrender.com/webhook/runrunit
       - key: PORT
         value: 3000
       - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
         value: false
       - key: PUPPETEER_CACHE_DIR
         value: /opt/render/.cache/puppeteer
+      - key: NODE_ENV
+        value: production
