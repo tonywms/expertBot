@@ -1,0 +1,44 @@
+2026/03/31-17:05:56.400 3ff4 Reusing MANIFEST C:\ERPPrime\ExpertBot\bot-server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/03/31-17:05:56.401 3ff4 Recovering log #3876
+2026/03/31-17:05:56.438 3ff4 Reusing old log C:\ERPPrime\ExpertBot\bot-server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/003876.log 
+2026/03/31-17:05:58.708 345c Level-0 table #3894: started
+2026/03/31-17:05:58.722 345c Level-0 table #3894: 1042346 bytes OK
+2026/03/31-17:05:58.726 345c Delete type=0 #3876
+2026/03/31-17:05:58.729 345c Compacting 1@0 + 0@1 files
+2026/03/31-17:05:58.747 345c Generated table #3895@0: 13757 keys, 402615 bytes
+2026/03/31-17:05:58.749 345c Generated table #3896@0: 384 keys, 8979 bytes
+2026/03/31-17:05:58.749 345c Compacted 1@0 + 0@1 files => 411594 bytes
+2026/03/31-17:05:58.750 345c compacted to: files[ 0 2 12 0 0 0 0 ]
+2026/03/31-17:05:58.754 345c Compacting 1@1 + 10@2 files
+2026/03/31-17:05:58.816 345c Generated table #3897@1: 87809 keys, 2238392 bytes
+2026/03/31-17:05:58.873 345c Generated table #3898@1: 97354 keys, 2248732 bytes
+2026/03/31-17:05:58.926 345c Generated table #3899@1: 101479 keys, 2253157 bytes
+2026/03/31-17:05:58.970 345c Generated table #3900@1: 22624 keys, 2268779 bytes
+2026/03/31-17:05:59.018 345c Generated table #3901@1: 54425 keys, 2217136 bytes
+2026/03/31-17:05:59.050 345c Generated table #3902@1: 21755 keys, 2173594 bytes
+2026/03/31-17:05:59.064 345c Generated table #3903@1: 643 keys, 2122965 bytes
+2026/03/31-17:05:59.097 345c Generated table #3904@1: 14603 keys, 2186851 bytes
+2026/03/31-17:05:59.122 345c Generated table #3905@1: 20025 keys, 2160346 bytes
+2026/03/31-17:05:59.150 345c Generated table #3906@1: 27287 keys, 2154592 bytes
+2026/03/31-17:05:59.162 345c Generated table #3907@1: 5369 keys, 124891 bytes
+2026/03/31-17:05:59.163 345c Compacted 1@1 + 10@2 files => 22149435 bytes
+2026/03/31-17:05:59.163 345c compacted to: files[ 0 1 13 0 0 0 0 ]
+2026/03/31-17:05:59.164 345c Delete type=2 #3880
+2026/03/31-17:05:59.164 345c Delete type=2 #3881
+2026/03/31-17:05:59.164 345c Delete type=2 #3882
+2026/03/31-17:05:59.165 345c Delete type=2 #3883
+2026/03/31-17:05:59.165 345c Delete type=2 #3884
+2026/03/31-17:05:59.165 345c Delete type=2 #3885
+2026/03/31-17:05:59.165 345c Delete type=2 #3886
+2026/03/31-17:05:59.165 345c Delete type=2 #3887
+2026/03/31-17:05:59.165 345c Delete type=2 #3888
+2026/03/31-17:05:59.165 345c Delete type=2 #3889
+2026/03/31-17:05:59.165 345c Delete type=2 #3894
+2026/03/31-17:05:59.165 345c Delete type=2 #3895
+2026/03/31-17:06:00.144 345c Compacting 1@1 + 2@2 files
+2026/03/31-17:06:00.197 345c Generated table #3908@1: 53178 keys, 1669701 bytes
+2026/03/31-17:06:00.197 345c Compacted 1@1 + 2@2 files => 1669701 bytes
+2026/03/31-17:06:00.198 345c compacted to: files[ 0 0 12 0 0 0 0 ]
+2026/03/31-17:06:00.199 345c Delete type=2 #3890
+2026/03/31-17:06:00.199 345c Delete type=2 #3891
+2026/03/31-17:06:00.199 345c Delete type=2 #3896
