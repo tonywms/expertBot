@@ -3,9 +3,7 @@ services:
     name: expertBot
     runtime: node
     rootDir: bot-server
-    buildCommand: |
-        npm install --no-audit --no-fund
-        npx puppeteer browsers install chrome --force
+    buildCommand: npm install --no-audit --no-fund
     startCommand: npm start
     envVars:
       - key: MISTRAL_API_KEY
@@ -16,7 +14,7 @@ services:
         value: 3000
       - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
         value: false
-      - key: PUPPETEER_CACHE_DIR
-        value: /opt/render/.cache/puppeteer
       - key: NODE_ENV
         value: production
+      - key: RENDER
+        value: true
